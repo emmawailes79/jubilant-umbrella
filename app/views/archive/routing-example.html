@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a demo of the service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Prototype Index",
+        href: "../index"
+      },
+      {
+        text: "Start",
+        href: "#"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Heading goes here
+      </h1>
+
+      <p>
+        This is a paragraph of text. It explains in more detail what has happened and wraps across several lines.
+      </p>
+
+      <p>
+        Read more <a href="/path/of/page">about this topic</a>.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

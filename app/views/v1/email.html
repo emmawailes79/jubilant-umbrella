@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "../index"
+    },
+    {
+      text: "Start",
+      href: "/new/start"
+    }
+    
+  ]
+}) }}
+
+<!--  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}-->
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Sign into your account
+      </h1>
+
+      <form class="form" action="/new/content" method="post">
+        <p>
+          <!--[Insert question content here - see the
+          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
+          for examples]-->
+        </p>
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "Enter your current email address"
+          },
+          id: "email",
+          name: "email",
+          type: "email",
+          value: "Not an email address",
+          autocomplete: "email",
+          errorMessage: {
+            text: "Enter an email address in the correct format, like name@example.com"
+          },
+          spellcheck: false
+        }) }}
+<!---
+        {{ govukInput({
+          label: {
+            text: "Enter your email",
+            classes: "govuk-label",
+            isPageHeading: true
+          },
+          id: "event-name",
+          name: "eventName"
+        }) }}
+        {{ govukPasswordInput({
+          label: {
+            text: "Password"
+          },
+          id: "password-input",
+          name: "password"
+  
+        }) }}      -->
+
+    
+        <!--{{ govukPasswordInput({
+          label: {
+            text: "Password"
+          },
+          id: "password-input",
+          name: "password"
+        }) }}-->
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
