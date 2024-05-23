@@ -10,6 +10,10 @@
     {
       text: "Home",
       href: "start"
+    },
+    {
+      text: "sign in",
+      href: "email"
     }
   ]
 }) }}
@@ -25,42 +29,25 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Sign into your account
+        Check your email
       </h1>
 
-      <form class="form" action="check-email" method="post">
+      <form class="form" action="content" method="post">
         <p>
-          <!--[Insert question content here - see the
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-          for examples]-->
+          A confirmation code has been sent to [email]<br>
+          <p>Check your spam and trash folder if you cannot find the email.</p>
+          <p>You can also <a href="https://design-system.service.gov.uk">request another confirmation code</a>
         </p>
-        <!--{{ govukInput({
-          label: {
-            text: "Email address"
-          },
-          hint: {
-            text: "Enter your current email address"
-          },
-          id: "email",
-          name: "email",
-          type: "email",
-          value: "Not an email address",
-          autocomplete: "email",
-          errorMessage: {
-            text: "Enter an email address in the correct format, like name@example.com"
-          },
-          spellcheck: false
-        }) }}-->
-
+        
         {{ govukInput({
           label: {
-            text: "Email address",
-            classes: "govuk-label",
-            isPageHeading: true
+            text: "Confirmation code"
           },
+          classes: "govuk-input--width-5",
           id: "event-name",
           name: "eventName"
         }) }}
+
         <!--
         {{ govukPasswordInput({
           label: {
