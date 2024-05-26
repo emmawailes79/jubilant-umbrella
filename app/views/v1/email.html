@@ -1,10 +1,15 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main.njk" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Sign into your account – {{ serviceName }}
 {% endblock %}
 
+{% set pageName="Sign into your account" %}
+
 {% block beforeContent %}
+
+  {% include "includes/phasebanner.html" %}
+
 {{ govukBreadcrumbs({
   items: [
     {
@@ -13,23 +18,29 @@
     }
   ]
 }) }}
-
-<!--  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}-->
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
-        Sign into your account
+        {{ pageName }}
       </h1>
-
       <form class="form" action="check-email" method="post">
         <p>
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            classes: "govuk-input--width-20",
+            id: "[new][emailAddress]",
+            name: "[new][emailAddress]",
+            type: "email",
+            autocomplete: "emailAddress",
+            spellcheck: false
+          }) }}
+       
+
           <!--[Insert question content here - see the
           <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
           for examples]-->
@@ -51,16 +62,8 @@
           },
           spellcheck: false
         }) }}-->
+        
 
-        {{ govukInput({
-          label: {
-            text: "Email address",
-            classes: "govuk-label",
-            isPageHeading: true
-          },
-          id: "event-name",
-          name: "eventName"
-        }) }}
         <!--
         {{ govukPasswordInput({
           label: {
