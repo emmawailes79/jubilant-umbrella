@@ -1,44 +1,36 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main.njk" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your email – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "start"
-    },
-    {
-      text: "sign in",
-      href: "email"
-    }
-  ]
-}) }}
-
-<!--  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}-->
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "start"
+      },
+      {
+        text: "Sign in",
+        href: "email"
+      }
+    ]
+  }) }}
 {% endblock %}
 
 {% block content %}
+<div class="container">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        Check your email
-      </h1>
-
-      <form class="form" action="content" method="post">
+      <h1 class="govuk-heading-l">Check your email</h1>
+      <form class="form" action="name" method="post">
         <p>
-          A confirmation code has been sent to [email]<br>
+          A confirmation code has been sent to [email].<br>
           <p>Check your spam and trash folder if you cannot find the email.</p>
-          <p>You can also <a href="https://design-system.service.gov.uk">request another confirmation code</a>
+          <p>You can also <a href="#">request another confirmation code</a>.</p>
         </p>
-        
+
         {{ govukInput({
           label: {
             text: "Confirmation code"
@@ -48,33 +40,11 @@
           name: "eventName"
         }) }}
 
-        <!--
-        {{ govukPasswordInput({
-          label: {
-            text: "Password"
-          },
-          id: "password-input",
-          name: "password"
-  
-        }) }}      -->
-
-    
-        <!--{{ govukPasswordInput({
-          label: {
-            text: "Password"
-          },
-          id: "password-input",
-          name: "password"
-        }) }}-->
         {{ govukButton({
           text: "Continue"
         }) }}
-
-
-
       </form>
-
     </div>
   </div>
-
+</div>
 {% endblock %}
